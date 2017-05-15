@@ -1,8 +1,9 @@
-const stringPerms = (string = 'zak') => {
+const allAnagrams = (string = 'zak') => {
   const perms = [];
 
   const findPerm = (str = '', s = string) => {
-    perms.push(str);
+    if (str.length === string.length) { perms.push(str); }
+
     for (let i = 0; i < s.length; i++) {
       const char = s[i];
       const rest = s[i + 1] ? s.slice(0, i) + s.slice(i + 1) : s.slice(0, i);
@@ -14,4 +15,5 @@ const stringPerms = (string = 'zak') => {
   return perms;
 };
 
-stringPerms();
+
+console.log(allAnagrams('zak'));
