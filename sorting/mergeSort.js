@@ -13,5 +13,16 @@ function merge(left, right) {
   return sorted;
 }
 
+function mergeSort(arr) {
+  const center = Math.floor(arr.length / 2);
+  if (center) {
+    const left = arr.slice(0, center);
+    const right = arr.slice(center);
+    console.log('L', left, 'R', right, center);
+    return merge(mergeSort(left), mergeSort(right));
+  }
+  return arr;
+}
 
-console.log(merge([1, 2, 3], [2, 3, 4]));
+
+console.log(mergeSort([1, 2, 3, 1]));
